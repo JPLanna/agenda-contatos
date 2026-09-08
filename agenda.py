@@ -18,7 +18,16 @@ def cadastrar_contato():
 
 
 def listar_contatos():
-    pass
+    if not contatos:
+        print("Nenhum contato cadastrado.")
+        return
+
+    for contato in contatos:
+        print(
+            f"{contato['nome']} - "
+            f"{contato['telefone']} - "
+            f"{contato['email']}"
+        )
 
 
 def buscar_contato():
@@ -37,7 +46,7 @@ while True:
     print("4 - Remover contato")
     print("0 - Sair")
 
-    opcao = input("Escolha uma opção: ")
+    opcao = input("Escolha uma opção: ").strip()
 
     if opcao == "1":
         cadastrar_contato()
